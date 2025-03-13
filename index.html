@@ -22,20 +22,25 @@
 </head>
 
 <body>
-    <header>
+    <header class="bg-light mb-3 mb-md-4 mb-lg-5 py-3 py-md-4 py-lg-5">
         <div class="container">
-            <div class="row py-3">
-                <div class="col-6">
+            <div class="row">
+                <div class="col-9 col-lg-3 order-1 order-lg-1 mb-3 mb-lg-0">
                     <div class="d-flex gap-3 align-items-center">
                         <div><a href="./"><img src="./images/bv-sergei-ermilov.png" alt="Сергей Ермилов" class="img-fluid" style="max-width:60px"></a></div>
-                        <div>
+                        <div style="line-height: 1;">
                             <small>Тренер</small><br>
                             <span class="h5 fw-bold">Сергей Ермилов</span>
                         </div>
                     </div>                    
                 </div>
-                <div class="col-6 text-end">
+                <div class="col-3 col-lg-3 text-end order-2 order-lg-3">
                     <a href="./en/" class="link-secondary">English</a>
+                </div>
+                <div class="col-12 col-lg-6 order-3 order-lg-2 my-auto text-center">
+                    <a href="#about" class="menu-link">О тренере</a> 
+                    <a href="#locations" class="menu-link">Локации</a>
+                    <a href="#contacts" class="menu-link">Контакты</a>
                 </div>
             </div>
         </div>      
@@ -45,7 +50,7 @@
         <div class="container">
             <div class="row mb-3 mb-lg-5">
                 <div class="col-12">
-                    <p class="mb-4">Здравствуйте. Я - Сергей Ермилов, игрок и тренер по пляжному волейболу, КМС (Кандидат в Мастера Спорта) по классическому и пляжному волейболу, лицензированный тренер ВФВ (Всероссийской Федерации Волейбола). Приглашаю вас на тренировки по пляжному волейболу для детей и взрослых:</p>
+                    <p class="mb-4">Здравствуйте. Я - Сергей Ермилов. Приглашаю вас на тренировки по пляжному волейболу для детей и взрослых:</p>
                     <ul>
                         <li>индивидуальные тренировки (1 на 1)</li>
                         <li>сплит-тренировки для пар (2 человека на корте)</li>
@@ -55,13 +60,14 @@
                 </div>
             </div>
 
-            <div class="row mb-3 mb-lg-5">
+            <div class="row mb-3 mb-lg-5" id="about">
                 <div class="col-12 col-lg-3">
                     <img src="./images/sergei.png" alt="Сергей Ермилов" title="Сергей Ермилов" class="img-fluid png-shadow mb-3 mb-md-0">
                 </div>
                 <div class="col-12 col-lg-9 my-auto">
-                    <h2 class="mb-3 fw-bold">О тренере</h2>				
-                    <p>Основатель "2on2". Когда не тренирую - пишу всякие интересные новости и статьи про пляжку, развиваю этот сайт и много всего другого.</p>
+                    <h2 class="mb-3 fw-bold">О тренере</h2>
+                    <p>Игрок и тренер по пляжному волейболу, КМС (Кандидат в Мастера Спорта) по классическому и пляжному волейболу, лицензированный тренер ВФВ (Всероссийской Федерации Волейбола).</p>			
+                    <p>Когда не тренирую - пишу всякие интересные новости и статьи про пляжку, развиваю <a href="https://beach-volley.ru" target="_blank">сайт о пляжном волейболе</a> и много всего другого.</p>
                 </div>
             </div>
 
@@ -72,7 +78,7 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item bg-light">
                             <p>Лицензированный тренер Всероссийской федерации волейбола, лицензия № 580</p>
-                            <img src="./images/ermilov-580.jpg" alt="Сергей Ермилов" title="Сергей Ермилов" class="img-fluid" style="max-width: 480px;">
+                            <img src="./images/ermilov-580.jpg" alt="Сергей Ермилов" title="Сергей Ермилов" class="img-fluid license-image">
                         </li>
                         <li class="list-group-item">Выпускник СДЮШОР, тренер — Заслуженный тренер РСФСР Владимир Зиновьевич Славкин</li>
                         <li class="list-group-item bg-light">Кандидат в Мастера Спорта (КМС) по волейболу и пляжному волейболу</li>
@@ -87,7 +93,7 @@
                     
                 </div>
             </div>
-            <div class="row mb-3 mb-md-4 mb-lg-5">
+            <div class="row mb-3 mb-md-4 mb-lg-5" id="locations">
                 <div class="col-12 col-lg-3">
                     <h2 class="fw-bold">Локации</h2>						
                 </div>
@@ -104,7 +110,7 @@
                                 
                 </div>
             </div>
-            <div class="row mb-3 mb-md-5">
+            <div class="row mb-3 mb-md-5" id="contacts">
                 <div class="col-12 col-lg-3">
                     <h2 class="fw-bold">Контакты</h2>	
                 </div>
