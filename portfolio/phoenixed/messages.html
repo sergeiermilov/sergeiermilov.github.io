@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" /> 
     <title>Messages - Phoenixed - Phoenixed</title>
@@ -10,80 +9,84 @@
     <meta content="Phoenixed" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="./static/images/favicon.ico">
-
+    <link rel="shortcut icon" href="static/images/favicon.ico">
 
     <!-- Plugins css -->
-    <link href="./static/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
-    <link href="./static/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
-
-
+    <link href="static/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="static/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
-    <link href="./static/css/bootstrap.min.css" rel="stylesheet" type="text/css"
-        id="bs-default-stylesheet" />
-    <link href="./static/css/app.min.css" rel="stylesheet" type="text/css"
-        id="app-default-stylesheet" />
-
-    <link href="./static/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css"
-        id="bs-dark-stylesheet" />
-    <link href="./static/css/app-dark.min.css" rel="stylesheet" type="text/css"
-        id="app-dark-stylesheet" />
-
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="static/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="static/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="static/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./static/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css">
     <!-- icons -->
-    <link href="./static/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!--JQuery-->
-    <script type="text/javascript" src="./static/jquery.js"></script>
-    <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script src="static/moment-with-locales.min.js"></script>
+    <script>
+    moment.locale("en");
+    function flask_moment_render(elem) {
+        const timestamp = moment(elem.dataset.timestamp);
+        const func = elem.dataset.function;
+        const format = elem.dataset.format;
+        const timestamp2 = elem.dataset.timestamp2;
+        const no_suffix = elem.dataset.nosuffix;
+        const units = elem.dataset.units;
+        let args = [];
+        if (format)
+            args.push(format);
+        if (timestamp2)
+            args.push(moment(timestamp2));
+        if (no_suffix)
+            args.push(no_suffix);
+        if (units)
+            args.push(units);
+        elem.textContent = timestamp[func].apply(timestamp, args);
+        elem.classList.remove('flask-moment');
+        elem.style.display = "";
+    }
+    function flask_moment_render_all() {
+        const moments = document.querySelectorAll('.flask-moment');
+        moments.forEach(function(moment) {
+            flask_moment_render(moment);
+            const refresh = moment.dataset.refresh;
+            if (refresh && refresh > 0) {
+                (function(elem, interval) {
+                    setInterval(function() {
+                        flask_moment_render(elem);
+                    }, interval);
+                })(moment, refresh);
+            }
+        })
+    }
+    document.addEventListener("DOMContentLoaded", flask_moment_render_all);
+    </script>
 </head>
-
-<script src="./static/moment-with-locales.min.js"></script>
-<script>
-moment.locale("en");
-function flask_moment_render(elem) {
-    const timestamp = moment(elem.dataset.timestamp);
-    const func = elem.dataset.function;
-    const format = elem.dataset.format;
-    const timestamp2 = elem.dataset.timestamp2;
-    const no_suffix = elem.dataset.nosuffix;
-    const units = elem.dataset.units;
-    let args = [];
-    if (format)
-        args.push(format);
-    if (timestamp2)
-        args.push(moment(timestamp2));
-    if (no_suffix)
-        args.push(no_suffix);
-    if (units)
-        args.push(units);
-    elem.textContent = timestamp[func].apply(timestamp, args);
-    elem.classList.remove('flask-moment');
-    elem.style.display = "";
-}
-function flask_moment_render_all() {
-    const moments = document.querySelectorAll('.flask-moment');
-    moments.forEach(function(moment) {
-        flask_moment_render(moment);
-        const refresh = moment.dataset.refresh;
-        if (refresh && refresh > 0) {
-            (function(elem, interval) {
-                setInterval(function() {
-                    flask_moment_render(elem);
-                }, interval);
-            })(moment, refresh);
-        }
-    })
-}
-document.addEventListener("DOMContentLoaded", flask_moment_render_all);
-</script>
-
-<!-- body start -->
-
 <body class="loading"
     data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "dark", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
- <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function(m,e,t,r,i,k,a){
+			m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			m[i].l=1*new Date();
+			for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+			k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+		})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104047655', 'ym');
+
+		ym(104047655, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/104047655" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+  
+<!-- TOP BUTTON -->
+<style>.topbackbutton {position:fixed;left:45px;bottom:45px;z-index:9999;background-image: linear-gradient(to right, #4776E6, #8E54E9);border-radius:99px;padding:20px 25px 20px 16px;box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.2);}</style>
+<a href="../" title="Вернуться в портфолио"><div class="topbackbutton"><img src="../../assets/svg/back-white.svg" alt="Вернуться в портфолио" title="Вернуться в портфолио" width="38" height="38"></div></a>
+<!-- END TOP BUTTON --> 
   
     <!-- Begin page -->
     <div id="wrapper">
@@ -92,7 +95,6 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
         <div class="navbar-custom">
             <div class="container-fluid">
                 <ul class="list-unstyled topnav-menu float-end mb-0">
-
                     <li class="dropdown d-none d-lg-inline-block">
                         <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen"
                             href="#">
@@ -143,26 +145,26 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                             </div>
 
                             <!-- item-->
-                            <a href="./user/" class="dropdown-item notify-item">
+                            <a href="user/" class="dropdown-item notify-item">
                                 <i class="fe-user"></i>
                                 <span>My Account</span>
                             </a>
                             
                             <!-- item-->
-                            <a href="./billing/products" class="dropdown-item notify-item">
+                            <a href="billing/products.html" class="dropdown-item notify-item">
                                 <i class="fas fa-money-bill-wave"></i>
                                 <span>Membership</span>
                             </a>
                             
                             <!-- item-->
-                            <a href="./edit_profile" class="dropdown-item notify-item">
+                            <a href="edit_profile.html" class="dropdown-item notify-item">
                                 <i class="fe-settings"></i>
                                 <span>Settings</span>
                             </a>
                             <div class="dropdown-divider"></div>
 
                             <!-- item-->
-                            <a href="./auth/logout" class="dropdown-item notify-item">
+                            <a href="auth/login.html" class="dropdown-item notify-item">
                                 <i class="fe-log-out"></i>
                                 <span>Logout</span>
                             </a>
@@ -172,24 +174,24 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="./index.html" class="logo logo-dark text-center">
+                    <a href="./" class="logo logo-dark text-center">
                         <span class="logo-sm">
-                            <img src="./static/images/logo-sm.svg" alt="Phoenixed logo"
+                            <img src="static/images/logo-sm.svg" alt="Phoenixed logo"
                                 height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="./static/images/phoenixed-dark.svg"
+                            <img src="static/images/phoenixed-dark.svg"
                                 alt="Phoenixed logo" height="30">
                         </span>
                     </a>
 
-                    <a href="./index.html" class="logo logo-light text-center">
+                    <a href="./" class="logo logo-light text-center">
                         <span class="logo-sm">
-                            <img src="./static/images/logo-sm.svg" alt="Phoenixed logo"
+                            <img src="static/images/logo-sm.svg" alt="Phoenixed logo"
                                 height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="./static/images/phoenixed.svg" alt="Phoenixed logo"
+                            <img src="static/images/phoenixed.svg" alt="Phoenixed logo"
                                 height="30">
                         </span>
                     </a>
@@ -232,14 +234,14 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                         <li class="menu-title">Navigation</li>
 
                         <li>
-                            <a href="./index.html">
+                            <a href="./">
                                 <!--<span class="badge bg-success float-end">7</span>-->
                                 <i class="fe-home"></i>
                                 <span> Dashboard </span>
                             </a>
                         </li>
                         <li>
-                            <a href="./ta/index.html">
+                            <a href="ta/index.html">
                                 <!--<span class="badge bg-success float-end">7</span>-->
                                 <i class="fe-trending-up"></i>
                                 <span> Technical analysis </span>
@@ -248,13 +250,13 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
 
                         <li class="menu-title mt-2">Configurations</li>
                         <li>
-                            <a href="./exchange/">
+                            <a href="exchange/">
                                 <i class="fe-octagon"></i>
                                 <span>Exchange</span>
                             </a>
                         </li>
                         <li>
-                            <a href="./signal/signals.html">
+                            <a href="signal/signals.html">
                                 <i class="fe-settings"></i>
                                 <span>Signal</span>
 
@@ -262,26 +264,26 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                         </li>
                         <li class="menu-title mt-2">Trading Tools</li>
                         <li>
-                            <a href="./mirrortrading.html">
+                            <a href="mirrortrading.html">
                                 <i class="fe-users"></i>
                                 <span>Mirror trading</span>
                             </a>
                         </li>
                         <li>
-                            <a href="./firepit/">
+                            <a href="firepit/">
                                 <i class="fas fa-fire" style="color:rgb(255, 102, 0);"></i>
                                 <span>Firepits</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="./payload_generator.html">
+                            <a href="payload_generator.html">
                                 <i class="fe-box"></i>
                                 <span>Payload generator</span>
                             </a>
                         </li>
                         <li>
-                            <a href="./messages.html">
+                            <a href="messages.html">
 
                                 <i class="fe-mail"></i>
                                 <span>Activities</span> 
@@ -291,25 +293,25 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
 
                         <li class="menu-title mt-2">Help</li>
                         <li>
-                            <a href="./help/videos.html">
+                            <a href="help/videos.html">
                                 <i class="fe-tv"></i>
                                 <span>Videos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="./help/guides.html">
+                            <a href="help/guides.html">
                                 <i class="fe-map"></i>
                                 <span>Guides</span>
                             </a>
                         </li>
                         <li>
-                            <a href="./help/about.html">
+                            <a href="help/about.html">
                                 <i class="fe-alert-circle"></i>
                                 <span>About</span>
                             </a>
                         </li>
                         <li>
-                            <a href="./help/terms.html">
+                            <a href="help/terms.html">
                                 <i class="fe-file-text"></i>
                                 <span>Terms and conditions</span>
                             </a>
@@ -394,12 +396,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
 
                 </div>
                 <!-- End Sidebar -->
-
                 <div class="clearfix"></div>
-
             </div>
             <!-- Sidebar -left -->
-
         </div>
         <!-- Left Sidebar End -->
 
@@ -455,19 +454,16 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
 
             <div id="accordion">
                 <div class="card border-radius-10">
-                    <div class="card-header" id="heading4cf4d588-6f72-442c-92bf-7e0e077ad01c">
-                        
+                    <div class="card-header" id="heading4cf4d588-6f72-442c-92bf-7e0e077ad01c">                        
                         <button class="btn btn-light border-radius-10" data-toggle="collapse" data-target="#4cf4d588-6f72-442c-92bf-7e0e077ad01c" aria-expanded="true" aria-controls="4cf4d588-6f72-442c-92bf-7e0e077ad01c">
                             Signal fired
-                        </button>
-                       
+                        </button>                       
                     </div>
                     <div id="4cf4d588-6f72-442c-92bf-7e0e077ad01c" class="collapse show" aria-labelledby="heading4cf4d588-6f72-442c-92bf-7e0e077ad01c" data-parent="#accordion">
 
                         <div class="table-responsive">
                         <table class="table mb-0">
-                            <tbody>
-                                
+                            <tbody>                                
                                 <tr>
                                 
                                     <td class="bg-success">
@@ -479,8 +475,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         OrderID: ffa2df33-fafa-4c5a-965c-b9cae46d1833. Side: Sell, Size: 182 Type:Limit has been placed on the exchange
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
                                 <tr>
                                 
@@ -493,11 +488,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         OrderID: b58c6a22-1d1d-4c35-a15b-007ffca0ab79. Side: Sell, Size: 91 Type:Limit has been placed on the exchange
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:04Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:04Z</span>
                                     </td>
@@ -507,8 +500,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         Generated ladder in (Increase position) order: ETHUSD, 1579.49, 182$
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
                                 <tr>
                                 
@@ -521,11 +513,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         Generated ladder in (Increase position) order: ETHUSD, 1571.67, 91$
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:04Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:04Z</span>
                                     </td>
@@ -538,8 +528,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                 </tr>
                                  
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-danger">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:04Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:04Z</span>
                                     </td>
@@ -549,11 +538,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         ETHUSD, Main account: Stop loss: 0, Take Profit: 0
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:03Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:03Z</span>
                                     </td>
@@ -563,11 +550,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         OrderID: 45db7111-610c-4ea9-845b-4c440c348e31. Side: Sell, Size: 90 Type:Market has been placed on the exchange
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:03Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:03Z</span>
                                     </td>
@@ -577,11 +562,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         Generated order: ETHUSD, 1563.85, 90$, 0 SL, 0 TP.
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:03Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:03Z</span>
                                     </td>
@@ -591,11 +574,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         Wallet size (inc lev): 0.2470952 , allocated: 0.23474043999999997, after safety: 0.2323930356, available for trade $: 363.43
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:03Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:03Z</span>
                                     </td>
@@ -605,11 +586,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         Closed open position: Side: 90, Size: Sell
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:03Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:03Z</span>
                                     </td>
@@ -619,11 +598,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         Closing Buy, 90$
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:03Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:03Z</span>
                                     </td>
@@ -633,11 +610,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         OrderID: ffaf1d09-cc76-40ed-8f1e-3d1517eb75f1. Side: Sell, Size: 90 Type:Market has been placed on the exchange
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T11:05:02Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T11:05:02Z</span>
                                     </td>
@@ -715,8 +690,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                         <table class="table mb-0">
                             <tbody>
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T10:48:55Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T10:48:55Z</span>
                                     </td>
@@ -726,11 +700,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         OrderID: 888bd121-7722-46f5-a820-0485f2549b50. Side: Buy, Size: 182 Type:Limit has been placed on the exchange
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T10:48:54Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T10:48:54Z</span>
                                     </td>
@@ -740,11 +712,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         OrderID: d36aa452-5cf3-4df8-872e-0a5434af0aa3. Side: Buy, Size: 91 Type:Limit has been placed on the exchange
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T10:48:54Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T10:48:54Z</span>
                                     </td>
@@ -755,10 +725,8 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                         Generated ladder in (Increase position) order: ETHUSD, 1543.56, 182$
                                     </td>                                    
                                 </tr>
-                                 
-                                
-                                <tr>
-                                
+                                                                 
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T10:48:54Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T10:48:54Z</span>
                                     </td>
@@ -768,11 +736,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         Generated ladder in (Increase position) order: ETHUSD, 1551.35, 91$
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-success">
                                         <span class="flask-moment" data-timestamp="2022-09-05T10:48:54Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T10:48:54Z</span>
                                     </td>
@@ -782,11 +748,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                                     <td>
                                         Wallet size (inc lev): 0.18760090000000001 , allocated: 0.17822085499999998, after safety: 0.1764386415, available for trade $: 275.09
                                     </td>                                    
-                                </tr>
-                                 
+                                </tr>                                 
                                 
-                                <tr>
-                                
+                                <tr>                                
                                     <td class="bg-danger">
                                         <span class="flask-moment" data-timestamp="2022-09-05T10:48:53Z" data-function="format" data-format="LLL" data-refresh="0" style="display: none">2022-09-05T10:48:53Z</span>
                                     </td>
@@ -815,7 +779,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
             <a href="#" class="btn btn-light border-radius-10">
                 <span aria-hidden="true">&larr;</span> Newer messages
             </a>
-            <a href="./messages?page=2" class="btn btn-light border-radius-10">
+            <a href="./messages.html?page=2" class="btn btn-light border-radius-10">
                 Older messages <span aria-hidden="true">&rarr;</span>
             </a>
         </div>  
@@ -823,10 +787,8 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
 </div>
     </div>
     <!-- container -->
-
             </div>
             <!-- content -->
-
             <!-- Footer Start -->
             <footer class="footer">
                 <div class="container-fluid">
@@ -838,9 +800,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                         </div>
                         <div class="col-md-6">
                             <div class="text-md-end footer-links d-none d-sm-block">
-                                <a href="./help/about.html">About Us</a>
-                                <a href="./help/videos.html">Help</a>
-                                <a href="./help/contact_us.html">Contact Us</a>
+                                <a href="help/about.html">About Us</a>
+                                <a href="help/videos.html">Help</a>
+                                <a href="help/contact_us.html">Contact Us</a>
                             </div>
                         </div>
                     </div>
@@ -859,14 +821,14 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
     <!-- END wrapper -->
 
     <!-- Vendor js -->
-    <script src="./static/js/vendor.min.js"></script>
-    <script src="./static/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-    <script src="./static/js/custom/form-wizard.init.js"></script>
+    <script src="static/js/vendor.min.js"></script>
+    <script src="static/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="static/js/custom/form-wizard.init.js"></script>
 
     <!-- App js -->
-    <script src="./static/js/app.min.js"></script>
-    <script src="./static/socketio.js"></script>
-    <script src="./static/js/custom/notifications.js"></script>
+    <script src="static/js/app.min.js"></script>
+    <script src="static/socketio.js"></script>
+    <script src="static/js/custom/notifications.js"></script>
 
 </body>
 </html>

@@ -36,52 +36,68 @@
     <!--JQuery-->
     <script src="../static/jquery.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/moment-with-locales.min.js"></script>
+    <script>
+    moment.locale("en");
+    function flask_moment_render(elem) {
+        const timestamp = moment(elem.dataset.timestamp);
+        const func = elem.dataset.function;
+        const format = elem.dataset.format;
+        const timestamp2 = elem.dataset.timestamp2;
+        const no_suffix = elem.dataset.nosuffix;
+        const units = elem.dataset.units;
+        let args = [];
+        if (format)
+            args.push(format);
+        if (timestamp2)
+            args.push(moment(timestamp2));
+        if (no_suffix)
+            args.push(no_suffix);
+        if (units)
+            args.push(units);
+        elem.textContent = timestamp[func].apply(timestamp, args);
+        elem.classList.remove('flask-moment');
+        elem.style.display = "";
+    }
+    function flask_moment_render_all() {
+        const moments = document.querySelectorAll('.flask-moment');
+        moments.forEach(function(moment) {
+            flask_moment_render(moment);
+            const refresh = moment.dataset.refresh;
+            if (refresh && refresh > 0) {
+                (function(elem, interval) {
+                    setInterval(function() {
+                        flask_moment_render(elem);
+                    }, interval);
+                })(moment, refresh);
+            }
+        })
+    }
+    document.addEventListener("DOMContentLoaded", flask_moment_render_all);
+    </script>
 </head>
-
-<script src="../static/moment-with-locales.min.js"></script>
-<script>
-moment.locale("en");
-function flask_moment_render(elem) {
-    const timestamp = moment(elem.dataset.timestamp);
-    const func = elem.dataset.function;
-    const format = elem.dataset.format;
-    const timestamp2 = elem.dataset.timestamp2;
-    const no_suffix = elem.dataset.nosuffix;
-    const units = elem.dataset.units;
-    let args = [];
-    if (format)
-        args.push(format);
-    if (timestamp2)
-        args.push(moment(timestamp2));
-    if (no_suffix)
-        args.push(no_suffix);
-    if (units)
-        args.push(units);
-    elem.textContent = timestamp[func].apply(timestamp, args);
-    elem.classList.remove('flask-moment');
-    elem.style.display = "";
-}
-function flask_moment_render_all() {
-    const moments = document.querySelectorAll('.flask-moment');
-    moments.forEach(function(moment) {
-        flask_moment_render(moment);
-        const refresh = moment.dataset.refresh;
-        if (refresh && refresh > 0) {
-            (function(elem, interval) {
-                setInterval(function() {
-                    flask_moment_render(elem);
-                }, interval);
-            })(moment, refresh);
-        }
-    })
-}
-document.addEventListener("DOMContentLoaded", flask_moment_render_all);
-</script>
-
-<!-- body start -->
-
 <body class="loading"
     data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "dark", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function(m,e,t,r,i,k,a){
+			m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			m[i].l=1*new Date();
+			for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+			k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+		})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104047655', 'ym');
+
+		ym(104047655, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/104047655" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter --> 
+
+<!-- TOP BUTTON -->
+<style>.topbackbutton {position:fixed;left:45px;bottom:45px;z-index:9999;background-image: linear-gradient(to right, #4776E6, #8E54E9);border-radius:99px;padding:20px 25px 20px 16px;box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.2);}</style>
+<a href="../../" title="Вернуться в портфолио"><div class="topbackbutton"><img src="../../../assets/svg/back-white.svg" alt="Вернуться в портфолио" title="Вернуться в портфолио" width="38" height="38"></div></a>
+<!-- END TOP BUTTON -->
+
     <!-- Begin page -->
     <div id="wrapper">
 
@@ -146,20 +162,20 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                             </a>
                             
                             <!-- item-->
-                            <a href="../billing/products" class="dropdown-item notify-item">
+                            <a href="../billing/products.html" class="dropdown-item notify-item">
                                 <i class="fas fa-money-bill-wave"></i>
                                 <span>Membership</span>
                             </a>
                             
                             <!-- item-->
-                            <a href="../edit_profile" class="dropdown-item notify-item">
+                            <a href="../edit_profile.html" class="dropdown-item notify-item">
                                 <i class="fe-settings"></i>
                                 <span>Settings</span>
                             </a>
                             <div class="dropdown-divider"></div>
 
                             <!-- item-->
-                            <a href="../auth/logout" class="dropdown-item notify-item">
+                            <a href="../auth/login.html" class="dropdown-item notify-item">
                                 <i class="fe-log-out"></i>
                                 <span>Logout</span>
                             </a>
@@ -169,7 +185,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="../index.html" class="logo logo-dark text-center">
+                    <a href="../" class="logo logo-dark text-center">
                         <span class="logo-sm">
                             <img src="../static/images/logo-sm.svg" alt="Phoenixed logo"
                                 height="22">
@@ -180,7 +196,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                         </span>
                     </a>
 
-                    <a href="../index.html" class="logo logo-light text-center">
+                    <a href="../" class="logo logo-light text-center">
                         <span class="logo-sm">
                             <img src="../static/images/logo-sm.svg" alt="Phoenixed logo"
                                 height="22">
@@ -229,14 +245,14 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                         <li class="menu-title">Navigation</li>
 
                         <li>
-                            <a href="../index.html">
+                            <a href="../">
                                 <!--<span class="badge bg-success float-end">7</span>-->
                                 <i class="fe-home"></i>
                                 <span> Dashboard </span>
                             </a>
                         </li>
                         <li>
-                            <a href="../ta/index.html">
+                            <a href="../ta/">
                                 <!--<span class="badge bg-success float-end">7</span>-->
                                 <i class="fe-trending-up"></i>
                                 <span> Technical analysis </span>
@@ -456,7 +472,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                     <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
                         <div class="blog-wrapper home-blog-wrapper border-radius-35 mb-3">
                             <div class="blog-thumb">
-                                <a href="../ta/blog_post.html">
+                                <a href="blog_post.html">
                                     <img src="../static/images/image-1.jpg" alt="" class="border-radius-25 img-fluid" />
                                 </a>
                             </div>
@@ -467,12 +483,12 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                             </div>
                             <div class="blog-content home-blog">
                                 <h2 class="blog-title animate__animated animate__fadeInDown text-center">
-                                    <a href="../ta/blog_post.html">First Mover Americas: Bitcoin Now Below $19K</a>
+                                    <a href="blog_post.html">First Mover Americas: Bitcoin Now Below $19K</a>
                                 </h2>
                                 <p class="text-center">The latest price moves in crypto markets in context for Sept. 13, 2022.</p>
                             </div>
                             <div class="text-center">
-                                <a href="../ta/blog_post.html" class="button b-orange">Read More</a>
+                                <a href="blog_post.html" class="button b-orange">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -480,7 +496,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                     <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
                         <div class="blog-wrapper home-blog-wrapper border-radius-35 mb-3">
                             <div class="blog-thumb">
-                                <a href="../ta/blog_post.html">
+                                <a href="blog_post.html">
                                     <img src="../static/images/image-2.jpg" alt="" class="border-radius-25 img-fluid" />
                                 </a>
                             </div>
@@ -491,12 +507,12 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                             </div>
                             <div class="blog-content home-blog">
                                 <h2 class="blog-title animate__animated animate__fadeInDown text-center">
-                                    <a href="../ta/blog_post.html">Ether Outshines Bitcoin as Ethereum Merge Nears</a>
+                                    <a href="blog_post.html">Ether Outshines Bitcoin as Ethereum Merge Nears</a>
                                 </h2>
                                 <p class="text-center">The latest price moves in crypto markets in context for Sept. 11, 2022.</p>
                             </div>
                             <div class="text-center">
-                                <a href="../ta/blog_post.html" class="button b-orange">Read More</a>
+                                <a href="blog_post.html" class="button b-orange">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -504,7 +520,7 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                     <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
                         <div class="blog-wrapper home-blog-wrapper border-radius-35 mb-3">
                             <div class="blog-thumb">
-                                <a href="../ta/blog_post.html">
+                                <a href="blog_post.html">
                                     <img src="../static/images/image-3.jpg" alt="" class="img-fluid border-radius-25" />
                                 </a>
                             </div>
@@ -515,12 +531,12 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
                             </div>
                             <div class="blog-content home-blog">
                                 <h2 class="blog-title animate__animated animate__fadeInDown text-center">
-                                    <a href="../ta/blog_post.html">Bitcoin Languishes Below $20K as Energy Crisis in Europe Worsens</a>
+                                    <a href="blog_post.html">Bitcoin Languishes Below $20K as Energy Crisis in Europe Worsens</a>
                                 </h2>
                                 <p class="text-center">The latest price moves in crypto markets in context for Sept. 9, 2022.</p>
                             </div>
                             <div class="text-center">
-                                <a href="../ta/blog_post.html" class="button b-orange">Read More</a>
+                                <a href="ta/blog_post.html" class="button b-orange">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -565,9 +581,9 @@ document.addEventListener("DOMContentLoaded", flask_moment_render_all);
     </div>
     <!-- END wrapper -->
 
-    <script src="/static/libs/moment/min/moment.min.js"></script>
-    <script src="/static/libs/quill/quill.min.js"></script>
-    <script src="/static/js/pages/form-quilljs.init.js"></script>
+    <script src="../static/libs/moment/min/moment.min.js"></script>
+    <script src="../static/libs/quill/quill.min.js"></script>
+    <script src="../static/js/pages/form-quilljs.init.js"></script>
 
 <script>
 var options = {

@@ -1,41 +1,181 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HC09CY02N9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HC09CY02N9');
-</script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+	<style>
+
+		.row-new > .column-new {
+		padding: 0 8px;
+		}
+
+		.row-new:after {
+		content: "";
+		display: table;
+		clear: both;
+		}
+
+		.cursor {
+		cursor: pointer;
+		}
+
+		/* Create four equal columns that floats next to eachother */
+		.column-new {
+		float: left;
+		width: 25%;
+		}
+
+		.column-thumb {
+		float: left;
+		width: 10%;
+		}
+		/* The Modal (background) */
+		.modal-new {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		padding-top: 100px;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: black;
+		}
+
+		/* Modal Content */
+		.modal-content-new {
+		position: relative;
+		background-color: #fefefe;
+		margin: auto;
+		padding: 0;
+		width: 90%;
+		max-width: 1200px;
+		}
+
+		/* The Close Button */
+		.close-new {
+		color: white;
+		position: absolute;
+		top: 10px;
+		right: 25px;
+		font-size: 35px;
+		font-weight: bold;
+		}
+
+		.close-new:hover,
+		.close-new:focus {
+		color: #999;
+		text-decoration: none;
+		cursor: pointer;
+		}
+
+		/* Hide the slides by default */
+		.mySlides-new {
+		display: none;
+		}
+
+		/* Next & previous buttons */
+		.prev-new,
+		.next-new {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		padding: 16px;
+		margin-top: -50px;
+		color: white;
+		font-weight: bold;
+		font-size: 20px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		-webkit-user-select: none;
+		}
+
+		/* Position the "next button" to the right */
+		.next-new {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev-new:hover,
+		.next-new:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+		}
+
+		/* Number text (1/3 etc) */
+		.numbertext-new {
+		color: #f2f2f2;
+		font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+		}
+
+		/* Caption text */
+		.caption-container-new {
+		text-align: center;
+		background-color: black;
+		padding: 2px 16px;
+		color: white;
+		}
+
+		img.demo-new {
+		opacity: 0.6;
+		}
+
+		.active-new,
+		.demo-new:hover {
+		opacity: 1!important;
+		}
+
+		img.hover-shadow-new {
+		transition: 0.3s;
+		}
+
+		.hover-shadow-new:hover {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		cursor: pointer;
+		}
+	</style>
 
     <title>Сделано - DayZday</title>
   </head>
   <body>
- <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function(m,e,t,r,i,k,a){
+			m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			m[i].l=1*new Date();
+			for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+			k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+		})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104047655', 'ym');
+
+		ym(104047655, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/104047655" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->    
   
 <!-- TOP BUTTON -->
 <style>.topbackbutton {position:fixed;left:45px;bottom:45px;z-index:9999;background-image: linear-gradient(to right, #4776E6, #8E54E9);border-radius:99px;padding:20px 25px 20px 16px;box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.2);}</style>
-<a href="../../rus/portfolio.html" title="Вернуться в портфолио"><div class="topbackbutton"><img src="../../assets/svg/back-white.svg" alt="Вернуться в портфолио" title="Вернуться в портфолио" width="38" height="38"></div></a>
+<a href="../" title="Вернуться в портфолио"><div class="topbackbutton"><img src="../../assets/svg/back-white.svg" alt="Вернуться в портфолио" title="Вернуться в портфолио" width="38" height="38"></div></a>
 <!-- END TOP BUTTON -->  
 
     <section class="py-2 bg-green-gradient">
 	    <div class="container">
 	      <div class="row">
 	        <div class="col-12 col-md-4">
-	          <b><a href="./" class="link-dark"><img src="./assets/dayzday-white.svg" width="100" height="100" class="me-3"></a></b> / Это твоё приключение!
+	          <b><a href="./" class="link-dark"><img src="assets/dayzday-white.svg" width="100" height="100" class="me-3"></a></b> / Это твоё приключение!
 	        </div>
 	        <div class="col-12 col-md-4 my-auto">
 	        	<a href="about.html" class="me-4">О DayZ</a>
-	        	<a href="catalog.html">Каталог</a>
+	        	<a href="catalog.html" class="me-4">Каталог</a>
+				<a href="maps.html">Карты</a>
 	        </div>
 	        <div class="col-12 col-md-4 text-end my-auto">
 	        	<a href="https://store.steampowered.com/app/221100/DayZ/" rel="nofollow noopener" target="_blank"><img src="./assets/steam.svg" alt="DayZ on Steam" width="89" height="22"></a>
@@ -69,20 +209,60 @@
 
 					<div class="entry-content">
 						
-<p>Если у вас не очень мощный компьютер, но вам нравится DAYZ, то посмотрите лучшие настройки для игры на ноутбуке с картой VEGA Graphics). Мой ноутбук Honor имеет следующие характеристики: VEGA 7 OC, RYZEN 5 4650G\4600G, 16Gb Ram.</p>
+<p>Если у вас не очень мощный компьютер, но вам нравится DAYZ, то посмотрите лучшие настройки для игры на ноутбуке с картой VEGA Graphics. Мой ноутбук Honor имеет следующие характеристики: VEGA 7 OC, RYZEN 5 4650G\4600G, 16Gb Ram.</p>
 
+<div class="row-new mb-3 mb-md-4">
+	<div class="column-new">
+		<img src="assets/images/best-dayz.jpg" alt="DayZ: лучшие настройки для VEGA Graphic" class="hover-shadow-new" onclick="openModal();currentSlide(1)">
+	</div>
+	<div class="column-new">
+		<img src="assets/images/best-dayz.jpg" alt="DayZ: лучшие настройки для VEGA Graphic" class="hover-shadow-new" onclick="openModal();currentSlide(2)">
+	</div>
+</div>
 
-<div class="wp-block-image">
-<figure class="aligncenter size-full"><a href="./assets/images/best-dayz.jpg"><img src="./assets/images/best-dayz.jpg" alt="DayZ: лучшие настройки для VEGA Graphic" class="img-fluid"></a><figcaption class="wp-element-caption">DayZ: лучшие настройки для VEGA Graphic</figcaption></figure></div>
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal-new">
+  <span class="close-new cursor-new" onclick="closeModal()">&times;</span>
+  <div class="modal-content-new">
 
+    <div class="mySlides-new">
+      <div class="numbertext-new">1 / 2</div>
+      <img src="assets/images/best-dayz.jpg" style="width:100%">
+    </div>
+
+	<div class="mySlides-new">
+      <div class="numbertext-new">2 / 2</div>
+      <img src="assets/images/best-dayz.jpg" style="width:100%">
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev-new" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next-new" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container-new">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column-thumb">
+      <img class="demo-new cursor" src="assets/images/best-dayz.jpg" onclick="currentSlide(1)" alt="First">
+    </div>
+
+	<div class="column-thumb">
+      <img class="demo-new cursor" src="assets/images/best-dayz.jpg" onclick="currentSlide(2)" alt="Second">
+    </div>
+
+  </div>
+</div>
 
 <p>Самый хороший разбор и тесты с разными параметрами хорошо показаны в этом видео:</p>
 
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe title="DAYZ (The best settings for VEGA Graphics) | VEGA 7 OC RYZEN 5 4650G4600G 16Gb Ram | all settings" width="100%" height="450" src="https://www.youtube.com/embed/KGzaxe8fxFI?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-</div></figure>
+<figure>
+	<div>
+		<iframe title="DAYZ (The best settings for VEGA Graphics) | VEGA 7 OC RYZEN 5 4650G4600G 16Gb Ram | all settings" width="100%" height="450" src="https://www.youtube.com/embed/KGzaxe8fxFI?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+	</div>
+</figure>
 					</div>
 					
 				</article>
@@ -104,7 +284,7 @@
 	<div class="container">
 		<div class="row py-md-5 py-3">
 			<div class="col-12 col-md-3 order-1 order-md-2 text-start text-md-end">
-				<img src="./assets/18.svg" alt="18+" width="80" height="80">
+				<img src="assets/18.svg" alt="18+" width="80" height="80">
 			</div>
 			<div class="col-12 col-md-9 order-2 order-md-1">
 				<p class="text-muted"><small>BOHEMIA INTERACTIVE a.s. DAYZ ® и BOHEMIA INTERACTIVE® являются зарегистрированными торговыми марками BOHEMIA INTERACTIVE a.s. Все права защищены. Все остальные торговые марки и авторские права являются собственностью соответствующих владельцев.</small></p>
@@ -115,7 +295,50 @@
 </footer>
 <!-- END FOOTER SECTION -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script>
+		// Open the Modal
+		function openModal() {
+		document.getElementById("myModal").style.display = "block";
+		}
+
+		// Close the Modal
+		function closeModal() {
+		document.getElementById("myModal").style.display = "none";
+		}
+
+		let slideIndex = 1;
+		showSlides(slideIndex);
+
+		// Next/previous controls
+		function plusSlides(n) {
+		showSlides(slideIndex += n);
+		}
+
+		// Thumbnail image controls
+		function currentSlide(n) {
+		showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+		let i;
+		let slides = document.getElementsByClassName("mySlides-new");
+		let dots = document.getElementsByClassName("demo-new");
+		let captionText = document.getElementById("caption");
+		if (n > slides.length) {slideIndex = 1}
+		if (n < 1) {slideIndex = slides.length}
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active-new", "");
+		}
+		slides[slideIndex-1].style.display = "block";
+		dots[slideIndex-1].className += " active-new";
+		captionText.innerHTML = dots[slideIndex-1].alt;
+		}
+	</script>
 
   </body>
 </html>
