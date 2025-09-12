@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../assets/css/prism.css">
+	<link rel="stylesheet" href="../../assets/css/style.css">
+
+    <title>Исправляем ошибку 403 Forbidden в WordPress &#8212; SergeiErmilov</title>
+  </head>
+<body class="position-relative">
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function(m,e,t,r,i,k,a){
+			m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			m[i].l=1*new Date();
+			for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+			k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+		})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104047655', 'ym');
+
+		ym(104047655, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/104047655" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->   
+
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+				<img src="../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Фронтенд</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../services/">Услуги</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../portfolio/">Портфолио</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../docs/">Доки</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../terms/">Термины</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../tools/">Инструменты</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../../book/">Книга</a>
+					</li>
+		
+					<li class="nav-item">
+						<a class="nav-link" href="../../contacts/">Контакты</a>
+					</li>
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- ---------- --> 
+<!-- END HEADER -->
+<!-- ---------- -->
+
+<div class="container">
+	<div class="row mb-3 mb-md-4 mb-lg-5">
+		<div class="col-12 single-content-column">
+			<p><a href="../" class="link-secondary">Доки</a></p>
+			<h1 class="fw-600">Исправляем ошибку 403 Forbidden в WordPress</h1>
+
+<p>Рассмотрим как исправить ошибку WordPress 403 Forbidden на вашем сайте, которая часто встречается после переноса сайтов.</p>
+
+
+
+<h2><span id="Cto_eto_za_osibka_WordPress_403_Forbidden">Что это за ошибка WordPress 403 Forbidden</span></h2>
+
+<p>WordPress обычно показывает коды ошибок и сообщения при их возникновении ошибки на вашем сайте.</p>
+
+
+<div>
+<figure><img src="images/403-forbidden-oshibka.jpg" alt="WordPress 403 Forbidden" class="img-fluid"><figcaption>WordPress 403 Forbidden</figcaption></figure></div>
+
+
+<p>Ошибка WordPress 403 Forbidden показывается, когда права доступа на вашем сервер не позволяют получить доступ к определенной странице.</p>
+
+
+
+<p>Она, как правило, сопровождается текстом:</p>
+
+
+
+<blockquote class="blockquote">
+<p>403 Forbidden – You don’t have permission to access ‘/’ on this server.</p>
+
+
+
+<p>Additionally, a 403 Forbidden error was encountered while trying to use an ErrorDocument to handle the request.</p>
+</blockquote>
+
+
+
+<p>Существуют различные сценарии, когда вы можете увидеть эту ошибку. Например:</p>
+
+
+
+<ul>
+<li>403 Forbidden — доступ запрещен на странице входа WordPress или на странице wp-admin</li>
+
+
+
+<li>403 Forbidden — во время установки WordPress</li>
+
+
+
+<li>403 Forbidden — при посещении любой страницы вашего сайта WordPress</li>
+</ul>
+
+
+
+<p>Также возможно, что вы увидите только «Доступ запрещен» (<strong>Access Denied</strong>) вместо полного запрещенного статуса 403.</p>
+
+
+
+<p>Вы также можете увидеть «Доступ к yourdomain.com был запрещен. У вас нет прав для просмотра этой страницы» (англ. — Access to yourdomain.com was denied. You don’t have authorization to view this page).</p>
+
+
+
+<p>Теперь, когда вы знаете о различных типах ошибок 403, давайте поговорим о причинах этой ошибки.</p>
+
+
+
+<h2><span id="Priciny_403_osibki">Причины 403 ошибки</span></h2>
+
+
+
+<p>Наиболее распространенная причина ошибки в WordPress 403 Forbidden связана с плохо настроенными плагинами безопасности.</p>
+
+
+
+<p>Многие плагины безопасности WordPress могут блокировать IP-адрес (или целый ряд IP-адресов), если они считают их вредоносными.</p>
+
+
+
+<p>Другой возможной причиной может быть неправильный или поврежденный файл <strong>.htaccess</strong>.</p>
+
+
+
+<p>Кроме того могут быть неправильные права доступа к файлам на вашем сервере.</p>
+
+
+
+<p>Ваш хостер может иногда вносить случайные изменения в настройки своего сервера, что, в свою очередь, может привести к ошибке 403 Forbidden на вашем сайте.</p>
+
+
+
+<p>Ниже посмотрим как исправить ошибку 403 в WordPress.</p>
+
+
+
+<h2><span id="Ispravlaem_403_osibku">Исправляем 403 ошибку</span></h2>
+
+
+
+<p>Прежде чем что-то делать, рекомендую создать полную резервную копию WordPress вашего сайта и Базы Данных.</p>
+
+
+
+<p>Если вы уже использовали плагин для автоматического резервного копирования WordPress, убедитесь, что у вас есть доступ к последней резервной копии, прежде чем двигаться вперед.</p>
+
+
+
+<h3><span id="1_Esli_vinovat_plagin">1. Если виноват плагин</span></h3>
+
+
+
+<p>Первое, что вам нужно сделать, это временно отключить все плагины в WordPress, включая все плагины безопасности, которые вы, возможно, установили на вашем сайте.</p>
+
+
+
+<p>Если это действие решило вашу проблему, то это значтт, что один из плагинов на вашем сайте вызвал 403 ошибку.</p>
+
+
+
+<p>Вы можете выяснить, какой из плагинов вызвал ошибку, активирую по очереди каждый плагин до тех пор, пока вы не сможете воспроизвести 403 forbidden.</p>
+
+
+
+<h3><span id="2_Problema_s_htaccess">2. Проблема с .htaccess</span></h3>
+
+
+
+<p>Часто ошибка 403 вызвана поврежденным файлом<strong> .htaccess</strong> на вашем сайте WordPress. Восстановить этот файл довольно просто.</p>
+
+
+
+<p>Сначала вам нужно подключиться к вашему сайту, используя FTP-клиент или файловый менеджер в cPanel.</p>
+
+
+
+<p>Далее, найдите файл <strong>.htaccess</strong> в корневой папке вашего сайта WordPress.</p>
+
+
+
+<p>Вам необходимо скачать .htaccess файл на ваш компьютер, чтобы у вас была свежая резервная копия. После этого вам необходимо удалить этот файл с вашего сервера.</p>
+
+
+<div>
+<figure><img src="images/delete-htaccess.jpg" alt="" class="img-fluid"></figure></div>
+
+
+<p>Попробуйте зайти на свой сайт. Если 403 ошибка пропала, то это означает, что ваш файл .htaccess был поврежден или неверно заполнен.</p>
+
+
+
+<p>Вы можете сгенерировать новый .htaccess файл, войдя в вашу административную панель WordPress и перейдя на страницу <em>Настройки -&gt; Постоянные ссылки</em> (англ. <em><strong>Settings -&gt; Permalinks</strong></em>).</p>
+
+
+<div>
+<figure><img src="images/regenerate-htaccess.jpg" alt="" class="img-fluid"></figure></div>
+
+
+<p>Просто нажмите на кнопку «Сохранить изменения» (<strong>Save Changes</strong>) в нижней части страницы и WordPress сгенерирует новый файл <strong>.htaccess</strong>.</p>
+
+
+
+<h3 id="3-проблема-с-разрешениями-файлов-и-папок"><span id="3_Problema_s_razreseniami_fajlov_i_papok">3. Проблема с разрешениями файлов и папок</span></h3>
+
+
+
+<p>Все файлы, хранящиеся на вашем сайте, имеют права доступа. Эти права доступа к файлам определяют, кто имеет доступ к файлам и папкам на вашем сайте.</p>
+
+
+
+<p>Неправильные права доступа к файлу могут вызвать ошибку запрета 403. Веб-сервер считает, что у вас нет прав доступа к этим файлам.</p>
+
+
+
+<p>Если два вышеупомянутых решения не устраняют ошибку 403 на вашем сайте, то неправильные права доступа к файлам могут быть наиболее вероятной причиной.</p>
+
+
+
+<p>Вы можете попросить своего хостинг-провайдера проверить ваш веб-сайт на предмет правильных прав доступа к файлам. Некоторые провайдеры очень внимательные и помогут исправить проблему.</p>
+
+
+
+<p>Изменение прав доступа к файлам само по себе может иметь серьезные последствия. Если Вы не чувствуете себя уверенно, делая это самостоятельно, то обратитесь за помощью к другу или наймите профессионала.</p>
+
+
+
+<p>Однако, если Вы хотите сделать это самостоятельно, то ниже разберем как Вы можете проверить свои права доступа к файлам.</p>
+
+
+
+<p>Просто подключитесь к своему WordPress сайту с помощью FTP-клиента. Перейдите в корневую папку, содержащую все Ваши файлы WordPress.</p>
+
+
+<div>
+<figure><img src="images/check-file-permissions.jpg" alt="" class="img-fluid"></figure></div>
+
+
+<p>Щелкните правой кнопкой мыши на нужную папку и выберите в меню пункт <strong>File Permissions</strong> (Права доступа к файлам).</p>
+
+
+
+<p>Ваш FTP-клиент покажет вам диалоговое окно с разрешениями для файлов, подобное этому:</p>
+
+
+<div>
+<figure><img src="images/change-file-permissions.jpg" alt="" class="img-fluid"></figure></div>
+
+
+<p>Все папки на вашем сайте WordPress должны иметь файловое разрешение <strong>744</strong> или <strong>755</strong>.</p>
+
+
+
+<p>Все файлы на сайте WordPress должны иметь разрешение <strong>644</strong> или <strong>640</strong>.</p>
+
+
+
+<p>Вы можете установить разрешение для корневой папки на <strong>744</strong> или <strong>755</strong>.</p>
+
+
+
+<p>Поставьте галочку напротив ‘Recurse into subdirectories’ (Запись в подкаталоги), а затем поставьте галочку напротив опции ‘Apply to directories only’ (Применять только к каталогам).</p>
+
+
+
+<p>Нажмите на кнопку OK. Теперь ваш FTP клиент начнет задавать разрешения для всех подкаталогов в этой папке.</p>
+
+
+
+<p>После этого нужно повторить процесс для всех файлов. На этот раз вы воспользуетесь файловыми разрешениями <strong>644</strong> или <strong>640</strong> и не забудьте выбрать опции ‘Recurse into subdirectories’ (Запись в подкаталоги) и ‘apply to files only’ (Применять только к файлам).</p>
+
+
+
+<p>Нажмите кнопку OK, и ваш FTP клиент начнет установку файловых разрешений для всех выбранных файлов.</p>
+
+
+
+<p>После данных операций попробуйте войти на сайт, ошибка WordPress 403 Forbidden должна исчезнуть.</p>
+			
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="mb-3 mb-mb-4 d-flex gap-3">
+				<div>
+					<img alt="Сергей Ермилов" src="../../assets/images/sergei-450.png" height="68" width="68">
+				</span>
+				</div>
+				<div>
+					<a href="../../about/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Сергей Ермилов</a><br>
+					<span>Дизайнер, верстальщик, фронтенд-разработчик, PHP и WordPress энтузиаст, главный редактор сайта</span>
+				</div>
+			</div> 
+		</div>
+		<div class="col-12 col-md-5">
+			<span class="text-muted">Опубликовано 10 февраля 2023 в 16:22</span><br>Теги: WordPress
+		</div>
+	</div>
+</div>
+
+<!-- ------------ -->
+<!-- START FOOTER -->
+<!-- ------------ -->
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">SergeiErmilov</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<script src="../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../assets/js/app.js"></script>
+	<script src="../../assets/js/prism.js"></script>	
+
+  </body>
+</html>
