@@ -811,6 +811,12 @@ a.link-to-blog:hover {
         font-size: 1.25em;
     }
 
+    .single-content-column h2,
+    .single-content-column h3 {
+        padding-bottom: 1em;
+        padding-top: 1em;
+    }
+
 	h1 {
 		font-size: 3rem;
 	}
