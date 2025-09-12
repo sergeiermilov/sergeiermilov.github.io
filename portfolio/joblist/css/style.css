@@ -3,7 +3,7 @@
 */
 
 #myInput {
-  background-image: url('/img/searchicon.png'); /* Добавить значок поиска для ввода */
+  background-image: url('../img/searchicon.png'); /* Добавить значок поиска для ввода */
   background-position: 10px 12px; /* Расположите значок поиска */
   background-repeat: no-repeat; /* Не повторяйте изображение значка */
   width: 100%; /* Полная ширина */

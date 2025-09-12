@@ -226,7 +226,7 @@ a.no-border {
 }
 
 .draft-marker {
-	background-image: url('/images/span-back.svg');
+	background-image: url('../images/span-back.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 0 4px;
@@ -690,7 +690,7 @@ ul li code {
     height: 48px;
     content: " ";
     margin-right: 10px;
-    background-image: url(/assets/svg/ino.svg);
+    background-image: url(../assets/svg/ino.svg);
     background-repeat: no-repeat;
     vertical-align: middle
 }
@@ -712,7 +712,7 @@ ul li code {
     height: 48px;
     content: " ";
     margin-right: 10px;
-    background-image: url(/assets/svg/zip.svg);
+    background-image: url(../assets/svg/zip.svg);
     background-repeat: no-repeat;
     vertical-align: middle
 }
@@ -734,7 +734,7 @@ ul li code {
     height: 48px;
     content: " ";
     margin-right: 10px;
-    background-image: url(/assets/svg/git.svg);
+    background-image: url(../assets/svg/git.svg);
     background-repeat: no-repeat;
     vertical-align: middle
 }
@@ -756,7 +756,7 @@ ul li code {
     height: 48px;
     content: " ";
     margin-right: 10px;
-    background-image: url(/assets/svg/pdf.svg);
+    background-image: url(../assets/svg/pdf.svg);
     background-repeat: no-repeat;
     vertical-align: middle
 }
