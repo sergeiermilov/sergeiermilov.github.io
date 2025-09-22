@@ -894,6 +894,26 @@ a.premium-image-hotspots-tooltips-link {
 }
 
 /*
+ * NEW YEAR
+ */ 
+
+.new-year {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 989;
+    display: block;
+    pointer-events: none;
+    background-image: url('../images/new-year.png');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: contain
+}
+
+/*
  * MEDIA
  */
 
